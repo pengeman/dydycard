@@ -1,0 +1,20 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: dydycard
+  # freemarker 模板引擎
+  freemarker:
+    allow-request-override: true
+    allow-session-override: true
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    template-loader-path: classpath:/templates/,classpath:/static/,classpath:/web/
+    prefix:
+    suffix: .ftl
+    content-type: text/html

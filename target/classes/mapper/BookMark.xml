@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="BookMark" type="org.pengwt.myhome.myhome2.entity.BookMark"/>
+    <typeAlias alias="User" type="org.pengwt.myhome.myhome2.entity.User"/>
+
+    <select id="selectAllBookMark" resultClass="BookMark">
+        select id,name,url ,userid from cc
+    </select>
+
+    <select id="selectBookMarkByUser" parameterClass="java.lang.Integer" resultClass="BookMark">
+        select id,name,url ,userid from cc where userid=#userid#
+    </select>
+
+
+    <select id="selectBookMarkById" parameterClass="java.lang.Integer" resultClass="BookMark">
+        select id,name,url ,userid from cc where id=#id#
+    </select>
+
+    <select id="selectBookMarkByIdAndUser" parameterClass="BookMark" resultClass="BookMark">
+        select id,name,url ,userid from cc where id=#id# and userid=#userid#
+    </select>
+
+    <select id="getver" resultClass="int">
+        select code from ver_
+    </select>
+
+    <insert id="saveBookMark" parameterClass="BookMark">
+        insert into cc(name,url,userid) values(#name#, #url#, #userid#)
+        <selectKey resultClass="int" keyProperty="id" >
+            select seq as value from sqlite_sequence where name = 'cc';
+        </selectKey>
+    </insert>
+
+    <insert id="insertver" parameterClass="int">
+        insert into ver_ (`code`) values(#ver:int#)
+    </insert>
+
+    <delete id="deleteBookMarkById" parameterClass="int">
+        delete from cc where id=#id#
+    </delete>
+
+    <update id="updateBookMark" parameterClass="BookMark">
+        update cc set name=#name#,url=#url# where id=#id#
+    </update>
+
+    <select id="getUserById" parameterClass="java.lang.Integer" resultClass="User">
+        select id , name , pwd from user where id = #id#
+    </select>
+    <select id="getUserByName" parameterClass="java.lang.String" resultClass="User">
+        select id , name , pwd from user where name=#name#
+    </select>
+    <insert id="insertuser" parameterClass="User">
+        insert into user (name,pwd) values(#name#,#pwd#)
+        <selectKey resultClass="int" keyProperty="id" >
+            select seq as value from sqlite_sequence where name = 'user';
+        </selectKey>
+    </insert>
+
+    <statement id="createTablecc">
+        CREATE TABLE `cc` (`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,`name` CHAR, `url` CHAR)
+    </statement>
+    <update id="createTableUser">
+        CREATE TABLE user(id integer not null primary key autoincrement ,name char,pwd char);
+    </update>
+    <update id="alterTablecc">
+        alter table cc add column userid int;
+    </update>
+
+    <update id="createTablever">
+        CREATE TABLE `ver_` (`code` INTEGER NOT NULL)
+    </update>
+</sqlMap>

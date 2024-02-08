@@ -1,0 +1,9 @@
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/dao/BookMarkDao.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/entity/BookMark.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/entity/CommonResult.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/controller/BookMarkController.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/Myhome2Application.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/service/BookMarkService.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/NewMan.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/serviceimpl/BookMarkServiceImpl.java
+/home/peng/IdeaProjects/myhome2/src/main/java/org/pengwt/myhome/myhome2/daoimpl/BookMarkDaoImpl.java
